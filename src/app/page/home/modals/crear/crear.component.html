@@ -1,0 +1,29 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Nuevo" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  
+  <h3>Agregar nuevo usuario</h3>
+  
+  <form
+  nz-form
+  [nzLayout]="validateForm.get('formLayout')?.value"
+  [formGroup]="validateForm"
+  (ngSubmit)="submitForm()"
+  >
+  <nz-form-item>
+    <nz-form-label> Nombre</nz-form-label>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <input nz-input formControlName="fieldA"  [(ngModel)]="user.Name"  placeholder="input placeholder" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label >Correo</nz-form-label>
+    <nz-form-control nzErrorTip="Please input your Password!">
+      <input nz-input formControlName="filedB" [(ngModel)]="user.Email"  placeholder="input placeholder" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control >
+      <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-modal>

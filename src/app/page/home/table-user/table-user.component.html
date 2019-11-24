@@ -1,0 +1,31 @@
+<nz-table 
+#basicTable
+[nzData]="Users">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Estatus</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of Users">
+        <td>{{data.Name}}</td>
+        <td>{{data.Email}}</td>
+        <td>
+          <label 
+          nz-checkbox
+           [(ngModel)]="data.Enable">
+          
+           </label>
+        </td>
+        <td>
+          <!-- <app-edit ></app-edit> -->
+          <app-change-bock-status [user]="data"></app-change-bock-status>
+          <app-edit-information [user]="data"></app-edit-information>
+          <app-delete [iIdUser]="data.Id"></app-delete>
+        </td>   
+      </tr>
+    </tbody>
+  </nz-table>
